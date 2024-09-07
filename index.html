@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Product Management System</title>
+  </head>
+  <body>
+    <div class="crud">
+      <div class="head">
+        <button id="toggle-language">EN</button>
+        <h1>Product Management System</h1>
+      </div>
+
+      <div class="inputs">
+        <input type="text" id="title" placeholder="Product Name" />
+        <div class="price">
+          <input type="number" id="price" placeholder="Price" />
+          <input type="number" id="taxes" placeholder="Taxes" />
+          <input type="number" id="ads" placeholder="Ads" />
+          <input type="number" id="discount" placeholder="Discount" />
+          <small id="total">2313</small>
+        </div>
+        <input type="number" id="count" placeholder="Count" />
+        <input type="text" id="category" placeholder="Category" />
+        <button id="submit">Create</button>
+      </div>
+
+      <div class="outputs">
+        <div class="searchBlock">
+          <input type="text" id="search" placeholder="Search" />
+          <div class="searchButton">
+            <button id="create">Search by name</button>
+            <button id="create">Search by category</button>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>taxes</th>
+            <th>ads</th>
+            <th>discount</th>
+            <th>total</th>
+            <th>category</th>
+            <th>delete</th>
+            <th>update</th>
+          </tr>
+          <tbody>
+            <td>1</td>
+            <td>apple</td>
+            <td>100</td>
+            <td>10</td>
+            <td>10</td>
+            <td>15</td>
+            <td>522</td>
+            <td>phone</td>
+            <td><button id="update">Update</button></td>
+            <td><button id="delete">Delete</button></td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="module" src="languge.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
