@@ -59,7 +59,7 @@ padding: 10px 5px;
 border-radius: 4px;
 }
 #total::before{
-    content: "Total: ";
+    content: attr(data-content);;
 }
 button{
     width: 100%;
@@ -113,35 +113,38 @@ td button{
 
 }
 
-@media screen and (max-width:480px){
+@media screen and (max-width:800px){
+    *{
+        margin: 0;
+    }
     .crud{
         margin: 10px;
         width: 100%;
     }
      input,.price input{
-        width: 60%;
+        width: 100%;
     }
     button{
-        width: 60%;
+        width: 100%;
     }
     .price #total{
         display: block;
         margin: 5px 0;
-        width: 60%;
+        width: 100%;
     }
     .table-container {
-        width: 60%;
+        width: 100%;
          overflow-x: auto;
      }
      .searchButton{
      flex-direction: column; 
    }
    .searchButton button{
-   width: 60%;
-   margin: 10px;
+
+   width: 100%;
 }
 .head{
-    width: 60%;
+    width: 100%;
 }
 h1{
     font-size: 18px;

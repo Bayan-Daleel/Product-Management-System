@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Product Management System</title>
+    <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
   </head>
   <body>
     <div class="crud">
@@ -33,23 +34,23 @@
         <div class="searchBlock">
           <input type="text" id="search" placeholder="Search" />
           <div class="searchButton">
-            <button id="create">Search by name</button>
-            <button id="create">Search by category</button>
+            <button id="searchName">Search by name</button>
+            <button id="searchCategory">Search by category</button>
           </div>
         </div>
         <div class="table-container">
           <table>
             <tr>
-              <th>id</th>
-              <th>title</th>
-              <th>price</th>
-              <th>taxes</th>
-              <th>ads</th>
-              <th>discount</th>
-              <th>total</th>
-              <th>category</th>
-              <th>delete</th>
-              <th>update</th>
+              <th id="id-header"></th>
+              <th id="title-header"></th>
+              <th id="price-header"></th>
+              <th id="taxes-header"></th>
+              <th id="ads-header"></th>
+              <th id="discount-header"></th>
+              <th id="total-header"></th>
+              <th id="category-header"></th>
+              <th id="delete-header"></th>
+              <th id="update-header"></th>
             </tr>
             <tbody>
               <td>1</td>
@@ -67,7 +68,7 @@
         </div>
       </div>
     </div>
-    <script type="module" src="languge.js"></script>
+    <script src="languge.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
