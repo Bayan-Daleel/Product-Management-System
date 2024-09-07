@@ -1,4 +1,4 @@
-import i18next from "./node_modules/i18next/dist/esm/i18next.js";
+import i18next from "/node_modules/i18next/dist/esm/i18next.js";
 
 const headerElm = document.querySelector("h1");
 const ProductElm = document.getElementById("title");
