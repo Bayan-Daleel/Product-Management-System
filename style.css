@@ -57,9 +57,21 @@ input:focus{
 background-color: #a00d02;
 padding: 10px 5px;
 border-radius: 4px;
+color: white;
 }
 #total::before{
     content: attr(data-content);;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 button{
     width: 100%;
@@ -119,35 +131,46 @@ td button{
     }
     .crud{
         margin: 10px;
-        width: 100%;
+        width: 95%;
     }
      input,.price input{
-        width: 100%;
+        width: 95%;
     }
     button{
-        width: 100%;
+        width: 95%;
     }
     .price #total{
         display: block;
         margin: 5px 0;
-        width: 100%;
+        width: 95%;
     }
     .table-container {
-        width: 100%;
+        width: 98%;
+        height: 300px;
          overflow-x: auto;
+         overflow-y: auto;
      }
-     .searchButton{
-     flex-direction: column; 
-   }
-   .searchButton button{
-
-   width: 100%;
-}
+     th, td {
+        padding: 10px;
+    }
+   
+        .searchButton{
+            width: 98%;
+            display: flex;
+            flex-direction: column;         
+         }
+         .searchButton button{
+            width: 98%;         
+         }
 .head{
-    width: 100%;
+    width: 98%;
 }
 h1{
     font-size: 18px;
+}
+#deleteAll button{
+    width:96%;
+    margin: 0;
 }
 }
 

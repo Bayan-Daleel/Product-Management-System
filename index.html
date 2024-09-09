@@ -19,11 +19,31 @@
       <div class="inputs">
         <input type="text" id="title" placeholder="Product Name" />
         <div class="price">
-          <input type="number" id="price" placeholder="Price" />
-          <input type="number" id="taxes" placeholder="Taxes" />
-          <input type="number" id="ads" placeholder="Ads" />
-          <input type="number" id="discount" placeholder="Discount" />
-          <small id="total">2313</small>
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            id="price"
+            placeholder="Price"
+          />
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            id="taxes"
+            placeholder="Taxes"
+          />
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            id="ads"
+            placeholder="Ads"
+          />
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            id="discount"
+            placeholder="Discount"
+          />
+          <small id="total"></small>
         </div>
         <input type="number" id="count" placeholder="Count" />
         <input type="text" id="category" placeholder="Category" />
@@ -32,27 +52,38 @@
 
       <div class="outputs">
         <div class="searchBlock">
-          <input type="text" id="search" placeholder="Search" />
+          <input
+            type="text"
+            onclick="searchData(this.value)"
+            id="search"
+            placeholder="Search"
+          />
           <div class="searchButton">
-            <button id="searchName">Search by name</button>
-            <button id="searchCategory">Search by category</button>
+            <button onclick="getSearchMode(this.id)" id="searchName">
+              Search by name
+            </button>
+            <button onclick="getSearchMode(this.id)" id="searchCategory">
+              Search by category
+            </button>
           </div>
         </div>
+        <div id="deleteAll"></div>
         <div class="table-container">
           <table>
-            <tr>
-              <th id="id-header"></th>
-              <th id="title-header"></th>
-              <th id="price-header"></th>
-              <th id="taxes-header"></th>
-              <th id="ads-header"></th>
-              <th id="discount-header"></th>
-              <th id="total-header"></th>
-              <th id="category-header"></th>
+            <thead>
+              <th id="id-header">id</th>
+              <th id="title-header">title</th>
+              <th id="price-header">price</th>
+              <th id="taxes-header">taxes</th>
+              <th id="ads-header">ads</th>
+              <th id="discount-header">discount</th>
+              <th id="total-header">total</th>
+              <th id="count-header">count</th>
+              <th id="category-header">category</th>
               <th id="delete-header"></th>
               <th id="update-header"></th>
-            </tr>
-            <tbody>
+            </thead>
+            <tbody id="tbody">
               <td>1</td>
               <td>apple</td>
               <td>100</td>
