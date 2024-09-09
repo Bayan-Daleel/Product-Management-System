@@ -98,6 +98,11 @@ button:hover{
 .searchButton button{
     width: 45%;
 }
+.table-container {
+    height: 300px;
+     overflow-x: auto;
+     overflow-y: auto;
+ }
 
 table{
     width: 100%;

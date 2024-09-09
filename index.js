@@ -47,7 +47,7 @@ createButton.onclick = function () {
     category: categoryElm.value,
     total: totalElm.innerHTML,
   };
-  if (mode === "create") {
+  if (mode === "create" && title != "") {
     products.push(newPro);
   } else {
     products[temp] = newPro;
@@ -141,7 +141,7 @@ function getSearchMode(id) {
 function searchData(value) {
   if ((id = "searchName")) {
     for (let index = 0; index < products.length; index++) {
-      if (products[0].title.includes(value)) {
+      if (products[0].title.toLowerCase().includes(value.toLowerCase())) {
         let table = " ";
         table += `<tr><td>${i + 1}</td>
                         <td>${products[i].title}</td>
@@ -157,6 +157,22 @@ function searchData(value) {
       }
     }
   } else {
+    for (let index = 0; index < products.length; index++) {
+      if (products[0].category.toLowerCase().includes(value.toLowerCase())) {
+        let table = " ";
+        table += `<tr><td>${i + 1}</td>
+                          <td>${products[i].title}</td>
+                          <td>${products[i].price}</td>
+                          <td>${products[i].taxes}</td>
+                          <td>${products[i].ads}</td>
+                          <td>${products[i].discount}</td>
+                          <td>${products[i].total}</td>
+                          <td>${products[i].count}</td>
+                          <td>${products[i].category}</td>
+                          <td><button onclick=updateData(${i}) id="update">Update</button></td>
+                          <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+      }
+    }
   }
   document.getElementById("tbody").innerHTML = table;
 }
