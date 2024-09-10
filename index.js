@@ -122,7 +122,7 @@ function showDate() {
   }
   document.getElementById("tbody").innerHTML = table;
   let btnDelete = document.getElementById("deleteAll");
-  if (products.lengtssh > 0) {
+  if (products.length > 0) {
     btnDelete.innerHTML = `<button onclick=deleteAll()>${i18next.t(
       "deleteAll"
     )} ${products.length}</button>`;
