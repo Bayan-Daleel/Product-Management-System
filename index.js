@@ -52,7 +52,7 @@ createButton.onclick = function () {
   } else {
     products[temp] = newPro;
     mode = "create";
-    createButton.innerHTML = "Create";
+    createButton.innerHTML = i18next.t("Create");
   }
 
   localStorage.setItem("products", JSON.stringify(products));
@@ -85,12 +85,16 @@ function showDate() {
               <td>${products[i].total}</td>
               <td>${products[i].count}</td>
               <td>${products[i].category}</td>
-              <td><button onclick=updateData(${i}) id="update">Update</button></td>
-              <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+              <td><button onclick=updateData(${i}) id="update">${i18next.t(
+      "Update"
+    )}Update</button></td>
+              <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
+      "Delete"
+    )}</button></td></tr>`;
   }
   document.getElementById("tbody").innerHTML = table;
   let btnDelete = document.getElementById("deleteAll");
-  if (products.length > 0) {
+  if (products.lengtssh > 0) {
     btnDelete.innerHTML = `<button onclick=deleteAll()>${i18next.t(
       "deleteAll"
     )} ${products.length}</button>`;
@@ -120,7 +124,7 @@ function updateData(i) {
     (categoryElm.value = products[i].category),
     getTotal();
   mode = "update";
-  createButton.innerHTML = "Update";
+  createButton.innerHTML = i18next.t("Update");
   temp = i;
   scroll({
     top: 0,
@@ -157,8 +161,12 @@ function searchData(value) {
                       <td>${products[i].total}</td>
                       <td>${products[i].count}</td>
                       <td>${products[i].category}</td>
-                      <td><button onclick=updateData(${i}) id="update">Update</button></td>
-                      <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+                      <td><button onclick=updateData(${i}) id="update">${i18next.t(
+          "Update"
+        )}Update</button></td>
+              <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
+          "Delete"
+        )}</button></td></tr>`;
       }
     }
   } else if (searchMode === "category") {
@@ -173,8 +181,12 @@ function searchData(value) {
                       <td>${products[i].total}</td>
                       <td>${products[i].count}</td>
                       <td>${products[i].category}</td>
-                      <td><button onclick=updateData(${i}) id="update">Update</button></td>
-                      <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+                     <td><button onclick=updateData(${i}) id="update">${i18next.t(
+          "Update"
+        )}Update</button></td>
+              <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
+          "Delete"
+        )}</button></td></tr>`;
       }
     }
   }

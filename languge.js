@@ -10,8 +10,6 @@ const searchElm = document.getElementById("search");
 const createButton = document.getElementById("submit");
 const searchNameButton = document.getElementById("searchName");
 const searchCategoryButton = document.getElementById("searchCategory");
-const updateButton = document.getElementById("update");
-const deleteButton = document.getElementById("delete");
 const totalElm = document.getElementById("total");
 const toggleLanguageButton = document.getElementById("toggle-language");
 // الموارد والترجمات
@@ -93,9 +91,7 @@ function updateTextContent() {
   categoryElm.placeholder = i18next.t("Category");
   searchElm.placeholder = i18next.t("search");
   createButton.textContent = i18next.t("Create");
-  updateButton.textContent = i18next.t("Update");
   totalElm.setAttribute("data-content", i18next.t("Total"));
-  deleteButton.textContent = i18next.t("Delete");
   searchNameButton.textContent = i18next.t("Search by name");
   searchCategoryButton.textContent = i18next.t("Search by category");
 }
