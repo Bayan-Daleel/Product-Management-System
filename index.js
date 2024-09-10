@@ -91,7 +91,9 @@ function showDate() {
   document.getElementById("tbody").innerHTML = table;
   let btnDelete = document.getElementById("deleteAll");
   if (products.length > 0) {
-    btnDelete.innerHTML = `<button onclick=deleteAll()>Delete All ${products.length}</button>`;
+    btnDelete.innerHTML = `<button onclick=deleteAll()>${i18next.t(
+      "deleteAll"
+    )} ${products.length}</button>`;
   } else {
     btnDelete.innerHTML = "";
   }
@@ -126,53 +128,56 @@ function updateData(i) {
   });
 }
 
-let searchMode = "title";
+let searchMode = "name";
 function getSearchMode(id) {
+  console.log(id);
   let search = document.getElementById("search");
-  if ((id = "searchName")) {
-    search.Placeholder = "search By Name";
-  } else {
-    searchMode = "category";
-    search.Placeholder = "search By Category";
+  if (id === "searchName") {
+    search.placeholder = "Search By Name";
+    searchMode = "name"; // set search mode to 'name'
+  } else if (id === "searchCategory") {
+    search.placeholder = "Search By Category";
+    searchMode = "category"; // set search mode to 'category'
   }
   search.focus();
 }
 
 function searchData(value) {
-  if ((id = "searchName")) {
-    for (let index = 0; index < products.length; index++) {
-      if (products[0].title.toLowerCase().includes(value.toLowerCase())) {
-        let table = " ";
+  let table = "";
+
+  if (searchMode === "name") {
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].title.toLowerCase().includes(value.toLowerCase())) {
         table += `<tr><td>${i + 1}</td>
-                        <td>${products[i].title}</td>
-                        <td>${products[i].price}</td>
-                        <td>${products[i].taxes}</td>
-                        <td>${products[i].ads}</td>
-                        <td>${products[i].discount}</td>
-                        <td>${products[i].total}</td>
-                        <td>${products[i].count}</td>
-                        <td>${products[i].category}</td>
-                        <td><button onclick=updateData(${i}) id="update">Update</button></td>
-                        <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+                      <td>${products[i].title}</td>
+                      <td>${products[i].price}</td>
+                      <td>${products[i].taxes}</td>
+                      <td>${products[i].ads}</td>
+                      <td>${products[i].discount}</td>
+                      <td>${products[i].total}</td>
+                      <td>${products[i].count}</td>
+                      <td>${products[i].category}</td>
+                      <td><button onclick=updateData(${i}) id="update">Update</button></td>
+                      <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
       }
     }
-  } else {
-    for (let index = 0; index < products.length; index++) {
-      if (products[0].category.toLowerCase().includes(value.toLowerCase())) {
-        let table = " ";
+  } else if (searchMode === "category") {
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].category.toLowerCase().includes(value.toLowerCase())) {
         table += `<tr><td>${i + 1}</td>
-                          <td>${products[i].title}</td>
-                          <td>${products[i].price}</td>
-                          <td>${products[i].taxes}</td>
-                          <td>${products[i].ads}</td>
-                          <td>${products[i].discount}</td>
-                          <td>${products[i].total}</td>
-                          <td>${products[i].count}</td>
-                          <td>${products[i].category}</td>
-                          <td><button onclick=updateData(${i}) id="update">Update</button></td>
-                          <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
+                      <td>${products[i].title}</td>
+                      <td>${products[i].price}</td>
+                      <td>${products[i].taxes}</td>
+                      <td>${products[i].ads}</td>
+                      <td>${products[i].discount}</td>
+                      <td>${products[i].total}</td>
+                      <td>${products[i].count}</td>
+                      <td>${products[i].category}</td>
+                      <td><button onclick=updateData(${i}) id="update">Update</button></td>
+                      <td><button onclick=deleteData(${i}) id="delete">Delete</button></td></tr>`;
       }
     }
   }
+
   document.getElementById("tbody").innerHTML = table;
 }

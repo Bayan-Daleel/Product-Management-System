@@ -1,4 +1,3 @@
-// عناصر HTML
 const headerElm = document.querySelector("h1");
 const ProductElm = document.getElementById("title");
 const priceElm = document.getElementById("price");
@@ -15,7 +14,6 @@ const updateButton = document.getElementById("update");
 const deleteButton = document.getElementById("delete");
 const totalElm = document.getElementById("total");
 const toggleLanguageButton = document.getElementById("toggle-language");
-
 // الموارد والترجمات
 const resources = {
   en: {
@@ -46,6 +44,7 @@ const resources = {
       category: "Category",
       delete: "Delete",
       update: "Update",
+      "Delete All": "Delete All",
     },
   },
   ar: {
@@ -76,6 +75,7 @@ const resources = {
       category: "الفئة",
       delete: "حذف",
       update: "تحديث",
+      "Delete All": "حذف الكل",
     },
   },
 };
