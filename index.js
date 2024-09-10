@@ -1,4 +1,4 @@
-// const titleElm = document.getElementById("title");
+// const ProductElm = document.getElementById("title");
 // const priceElm = document.getElementById("price");
 // const taxesElm = document.getElementById("taxes");
 // const adsElm = document.getElementById("ads");
@@ -17,7 +17,7 @@
 let mode = "create";
 let temp;
 function getTotal() {
-  if (priceElm.value.trim() != " ") {
+  if (priceElm.value.trim() != "") {
     let result =
       +priceElm.value + +taxesElm.value + +adsElm.value - +discountElm.value;
     console.log(result);
@@ -27,11 +27,11 @@ function getTotal() {
     totalElm.innerHTML = "";
     totalElm.style.backgroundColor = "#a00d02";
   }
-  // console.log(totalElm);
 }
+
 let products;
 
-if (localStorage.products != "") {
+if (localStorage.products && localStorage.products !== "") {
   try {
     products = JSON.parse(localStorage.products);
   } catch (error) {
@@ -52,7 +52,7 @@ createButton.ontouchstart = function () {
     category: categoryElm.value,
     total: totalElm.innerHTML,
   };
-  if (mode === "create" && title != "") {
+  if (mode === "create" && ProductElm.value.trim() !== "") {
     products.push(newPro);
   } else {
     products[temp] = newPro;
@@ -64,6 +64,7 @@ createButton.ontouchstart = function () {
   clearData();
   showDate();
 };
+
 createButton.onclick = function () {
   let newPro = {
     title: ProductElm.value,
@@ -75,7 +76,7 @@ createButton.onclick = function () {
     category: categoryElm.value,
     total: totalElm.innerHTML,
   };
-  if (mode === "create" && title != "") {
+  if (mode === "create" && ProductElm.value.trim() !== "") {
     products.push(newPro);
   } else {
     products[temp] = newPro;
@@ -89,20 +90,20 @@ createButton.onclick = function () {
 };
 
 function clearData() {
-  (ProductElm.value = " "),
-    (priceElm.value = " "),
-    (taxesElm.value = " "),
-    (adsElm.value = " "),
-    (discountElm.value = " "),
-    (countElm.value = " "),
-    (categoryElm.value = " "),
-    (totalElm.innerHTML = " ");
+  ProductElm.value = "";
+  priceElm.value = "";
+  taxesElm.value = "";
+  adsElm.value = "";
+  discountElm.value = "";
+  countElm.value = "";
+  categoryElm.value = "";
+  totalElm.innerHTML = "";
 }
 
 showDate();
 function showDate() {
   getTotal();
-  let table = " ";
+  let table = "";
   for (let i = 0; i < products.length; i++) {
     table += `<tr><td>${i + 1}</td>
               <td>${products[i].title}</td>
@@ -130,6 +131,7 @@ function showDate() {
     btnDelete.innerHTML = "";
   }
 }
+
 function deleteData(id) {
   products.splice(id, 1);
   localStorage.products = JSON.stringify(products);
@@ -143,14 +145,14 @@ function deleteAll() {
 }
 
 function updateData(i) {
-  (ProductElm.value = products[i].title),
-    (priceElm.value = products[i].price),
-    (taxesElm.value = products[i].taxes),
-    (adsElm.value = products[i].ads),
-    (countElm.value = products[i].count),
-    (discountElm.value = products[i].discount),
-    (categoryElm.value = products[i].category),
-    getTotal();
+  ProductElm.value = products[i].title;
+  priceElm.value = products[i].price;
+  taxesElm.value = products[i].taxes;
+  adsElm.value = products[i].ads;
+  countElm.value = products[i].count;
+  discountElm.value = products[i].discount;
+  categoryElm.value = products[i].category;
+  getTotal();
   mode = "update";
   createButton.innerHTML = i18next.t("Update");
   temp = i;
@@ -165,10 +167,10 @@ function getSearchMode(id) {
   console.log(id);
   let search = document.getElementById("search");
   if (id === "searchName") {
-    search.placeholder = "Search By Name";
+    search.placeholder = i18next.t("Search by name");
     searchMode = "name"; // set search mode to 'name'
   } else if (id === "searchCategory") {
-    search.placeholder = "Search By Category";
+    search.placeholder = i18next.t("Search by category");
     searchMode = "category"; // set search mode to 'category'
   }
   search.focus();
