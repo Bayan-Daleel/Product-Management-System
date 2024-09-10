@@ -2,5 +2,10 @@
   "dependencies": {
     "i18next": "^23.15.1"
   },
-  "type": "module"
+  "type": "module",
+  "scripts": {
+  "build": "webpack --config webpack.config.js",
+  "deploy": "gh-pages -d build"
+}
+
 }
