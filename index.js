@@ -36,6 +36,30 @@ if (localStorage.products != "") {
 } else {
   products = [];
 }
+
+createButton.ontouchstart= function(){
+  let newPro = {
+    title: ProductElm.value,
+    price: priceElm.value,
+    taxes: taxesElm.value,
+    ads: adsElm.value,
+    discount: discountElm.value,
+    count: countElm.value,
+    category: categoryElm.value,
+    total: totalElm.innerHTML,
+  };
+  if (mode === "create" && title != "") {
+    products.push(newPro);
+  } else {
+    products[temp] = newPro;
+    mode = "create";
+    createButton.innerHTML = i18next.t("Create");
+  }
+
+  localStorage.setItem("products", JSON.stringify(products));
+  clearData();
+  showDate();
+};
 createButton.onclick = function () {
   let newPro = {
     title: ProductElm.value,
