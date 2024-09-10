@@ -40,9 +40,8 @@ const resources = {
       discount: "Discount",
       total: "Total",
       category: "Category",
-      delete: "Delete",
-      update: "Update",
       "Delete All": "Delete All",
+      Count: "Count",
     },
   },
   ar: {
@@ -58,7 +57,7 @@ const resources = {
       Category: "الصنف",
       search: "بحث",
       Create: "أضف المنتج",
-      "Search by name": "اليحث باسم المنتج",
+      "Search by name": "البحث باسم المنتج",
       "Search by category": "البحث باسم الصنف",
       Update: "تعديل",
       Delete: "حذف",
@@ -71,9 +70,8 @@ const resources = {
       discount: "الخصم",
       total: "المجموع",
       category: "الفئة",
-      delete: "حذف",
-      update: "تحديث",
       "Delete All": "حذف الكل",
+      Count: "العدد",
     },
   },
 };
@@ -110,6 +108,7 @@ function updateTableHeaders() {
     i18next.t("category");
   document.getElementById("delete-header").textContent = i18next.t("delete");
   document.getElementById("update-header").textContent = i18next.t("update");
+  document.getElementById("count-header").textContent = i18next.t("Count");
 }
 
 // تهيئة i18next

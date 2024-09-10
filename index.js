@@ -87,7 +87,7 @@ function showDate() {
               <td>${products[i].category}</td>
               <td><button onclick=updateData(${i}) id="update">${i18next.t(
       "Update"
-    )}Update</button></td>
+    )}</button></td>
               <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
       "Delete"
     )}</button></td></tr>`;
@@ -163,7 +163,7 @@ function searchData(value) {
                       <td>${products[i].category}</td>
                       <td><button onclick=updateData(${i}) id="update">${i18next.t(
           "Update"
-        )}Update</button></td>
+        )}</button></td>
               <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
           "Delete"
         )}</button></td></tr>`;
@@ -183,7 +183,7 @@ function searchData(value) {
                       <td>${products[i].category}</td>
                      <td><button onclick=updateData(${i}) id="update">${i18next.t(
           "Update"
-        )}Update</button></td>
+        )}</button></td>
               <td><button onclick=deleteData(${i}) id="delete">${i18next.t(
           "Delete"
         )}</button></td></tr>`;
