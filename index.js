@@ -32,12 +32,16 @@ function getTotal() {
 let products;
 
 if (localStorage.products != "") {
-  products = JSON.parse(localStorage.products);
+  try {
+    products = JSON.parse(localStorage.products);
+  } catch (error) {
+    console.error("Error parsing stored data:", error);
+  }
 } else {
   products = [];
 }
 
-createButton.ontouchstart= function(){
+createButton.ontouchstart = function () {
   let newPro = {
     title: ProductElm.value,
     price: priceElm.value,
